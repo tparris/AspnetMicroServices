@@ -1,6 +1,7 @@
 
 using Catalog.API.Data;
 using Catalog.API.Repositories;
+using Microsoft.OpenApi.Models;
 
 namespace Catalog.API
 {
@@ -17,10 +18,15 @@ namespace Catalog.API
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", b => b.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+            });
+
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog.API", Version = "v1" });
             });
 
             var app = builder.Build();
