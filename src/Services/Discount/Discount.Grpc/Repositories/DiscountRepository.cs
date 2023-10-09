@@ -1,13 +1,14 @@
 ﻿using Dapper;
-using Discount.API.Entities;
+using Discount.Grpc.Entities;
 using Npgsql;
 
-namespace Discount.API.Repositories
+namespace Discount.Grpc.Repositories
 {
     public class DiscountRepository: IDiscountRepository
     {
         private IConfiguration _configuration;
 
+        
         public DiscountRepository(IConfiguration configuration)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));

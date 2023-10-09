@@ -8,6 +8,7 @@ namespace Discount.API.Repositories
     {
         private IConfiguration _configuration;
 
+        
         public DiscountRepository(IConfiguration configuration)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
